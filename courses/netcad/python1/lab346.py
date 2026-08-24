@@ -9,9 +9,15 @@ hat_list[2] = middle_number
 del hat_list[-1]
 
 hat_list.append(24)
-hat_list.insert(2, 101)
+hat_list.insert(2, 11)
 
 # Step 3: write a line of code that prints the length of the existing list.
-print(len(hat_list))
-print(hat_list)
+length = len(hat_list)
 
+print(hat_list)
+print(length)
+
+for i in range(length // 2):
+    hat_list[i], hat_list[length - i - 1] = hat_list[length - i - 1], hat_list[i]
+
+print(hat_list)
