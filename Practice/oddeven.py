@@ -5,10 +5,15 @@ def isEven(num):
         return False
 
 def isOdd(num):
-    if num % 2 != 0:
-        return True
-    else:
-        return False
+    result = False
+    if num is int:
+        if num % 2 != 0:
+            result = True
+        else:
+            result = False
+        return result
+    else: 
+        print("Number is not an integer")
 
 # assert isOdd(42) == False
 
