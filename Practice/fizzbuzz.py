@@ -8,6 +8,7 @@ def fizzBuzz(upTo):
     else: 
         print(upTo, end = "")
     print()
-    
+
 
 fizzBuzz(390)
+
