@@ -25,18 +25,19 @@ def get_guess():
 def evaluate_guess(guess, secret):
     # guess = get_guess()
     # secret = generate_secret()
-    result = ""
+    result = []
 
     for num in range(len(secret)):
         if secret[num] == guess[num]:
-            result += "Fermi "
+            result.append("Fermi")
         
-        elif secret[num] in guess:
-            result += "Pico "
+        elif guess[num] in secret:
+            result.append("Pico")
 
-    if result == "":
-        result = "bagels"
-        
-    return result
+    if result == []:
+        result.append("bagels")
+    
+    # result = " ".join(result)
+    return " ".join(result)
 
-print(evaluate_guess("123", "123"))
+print(evaluate_guess("583", "513"))
