@@ -20,8 +20,23 @@ def get_guess():
         
     return guess
 
-print(get_guess())
+# print(get_guess())
 
 def evaluate_guess(guess, secret):
-    guess = get_guess()
-    secret = get_secret()
+    # guess = get_guess()
+    # secret = generate_secret()
+    result = ""
+
+    for num in range(len(secret)):
+        if secret[num] == guess[num]:
+            result += "Fermi "
+        
+        elif secret[num] in guess:
+            result += "Pico "
+
+    if result == "":
+        result = "bagels"
+        
+    return result
+
+print(evaluate_guess("123", "123"))
