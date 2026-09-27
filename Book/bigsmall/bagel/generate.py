@@ -11,3 +11,17 @@ def generate_secret():
     secret = digits[0] + digits[1] + digits[2]
     return secret
 
+def get_guess():
+    
+    while True:
+        guess= input("Guess my secret number: ")
+        if len(guess) == 3 and guess.isdigit():
+            break 
+        
+    return guess
+
+print(get_guess())
+
+def evaluate_guess(guess, secret):
+    guess = get_guess()
+    secret = get_secret()
