@@ -1,17 +1,14 @@
 import random
 
 def generate_secret():
-    len(number) == 3
-
-def get_guess():
-    while len(num) == 3:
-        guess = input(" ")
-While True: 
-
-for num in range(3):
-    secret1 = random.randint(0,9)
-    secret += secret1
-
-
-
-if len(secret[1])
+    digits = []
+    for _ in range(3):
+        while True:
+            gen = random.randint(0,9)
+            gen =str(gen)
+            if gen not in digits:
+                digits.append(gen)
+                break
+    # print(list)
+    secret = digits[0] + digits[1] + digits[2]
+    return secret
