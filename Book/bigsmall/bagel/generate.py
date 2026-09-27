@@ -41,3 +41,12 @@ def evaluate_guess(guess, secret):
     return " ".join(result)
 
 print(evaluate_guess("583", "513"))
+
+
+def main():
+    secret = generate_secret()
+    print("For this game, you have only 10 guesses")
+    count_guess = 1
+    guess = get_guess()
+
+    
