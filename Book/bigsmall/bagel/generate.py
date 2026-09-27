@@ -40,13 +40,21 @@ def evaluate_guess(guess, secret):
     # result = " ".join(result)
     return " ".join(result)
 
-print(evaluate_guess("583", "513"))
+# print(evaluate_guess("583", "513"))
 
 
 def main():
     secret = generate_secret()
     print("For this game, you have only 10 guesses")
     count_guess = 1
-    guess = get_guess()
 
-    
+    while count_guess < 11: 
+        guess = get_guess()
+        print(evaluate_guess(guess, secret))
+        count_guess += 1
+        if guess == secret:
+            print("You have guessed correctly")
+            break
+    else:
+        print(f"You are out of guesses, the correct number is {secret}")
+   
