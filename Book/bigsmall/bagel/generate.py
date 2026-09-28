@@ -40,24 +40,37 @@ def evaluate_guess(guess, secret):
     # result = " ".join(result)
     return " ".join(result)
 
-# print(evaluate_guess("583", "513"))
-
 
 def main():
-    secret = generate_secret()
-    print("For this game, you have only 10 guesses")
-    count_guess = 1
+    while True:
+        secret = generate_secret()
+        print("For this game, you have only 10 guesses")
+        count_guess = 1
 
-    while count_guess < 11: 
-        guess = get_guess()
-        print(evaluate_guess(guess, secret))
-        if guess == secret:
-            print("You have guessed correctly")
-            break
+        while count_guess < 11: 
+            guess = get_guess()
+            print(evaluate_guess(guess, secret))
+            if guess == secret:
+                print("You have guessed correctly")
+                break
+            
+            count_guess += 1
+
+        else:
+            print(f"You are out of guesses, the correct number is {secret}")
+
+        print("Do you want to play again? (yes/no)")
         
-        count_guess += 1
-
-    else:
-        print(f"You are out of guesses, the correct number is {secret}")
-
+        while True:
+            option = input()
+            option = option.upper()
+        
+            if option == "NO":
+                print("Thanks for playing!")
+                return
+            elif option == "YES":
+                print("Here is another chance")
+                break
+            else:
+                print("Kindly enter Yes/No")
 main()
