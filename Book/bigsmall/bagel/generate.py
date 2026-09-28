@@ -51,10 +51,13 @@ def main():
     while count_guess < 11: 
         guess = get_guess()
         print(evaluate_guess(guess, secret))
-        count_guess += 1
         if guess == secret:
             print("You have guessed correctly")
             break
+        
+        count_guess += 1
+
     else:
         print(f"You are out of guesses, the correct number is {secret}")
-   
+
+main()
