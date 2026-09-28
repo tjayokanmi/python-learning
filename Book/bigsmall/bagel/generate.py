@@ -8,7 +8,7 @@ def generate_secret():
             if gen not in digits:
                 digits.append(gen)
                 break
-    secret = digits[0] + digits[1] + digits[2]
+    secret = "".join(digits)
     return secret
 
 def get_guess():
