@@ -22,7 +22,9 @@ def get_guess():
 
 
 def evaluate_guess(guess, secret):
-        result = []
+    
+    
+    result = []
 
     for num in range(len(secret)):
         if secret[num] == guess[num]:
@@ -34,7 +36,7 @@ def evaluate_guess(guess, secret):
     if result == []:
         result.append("bagels")
     
-    # result = " ".join(result)
+    
     return " ".join(result)
 
 
