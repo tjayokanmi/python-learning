@@ -20,12 +20,9 @@ def get_guess():
         
     return guess
 
-# print(get_guess())
 
 def evaluate_guess(guess, secret):
-    # guess = get_guess()
-    # secret = generate_secret()
-    result = []
+        result = []
 
     for num in range(len(secret)):
         if secret[num] == guess[num]:
