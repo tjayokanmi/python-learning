@@ -39,7 +39,7 @@ def evaluate_guess(guess, secret):
     
     return " ".join(result)
 
-
+# This is the main function, where everything is connected.
 def main():
     while True:
         secret = generate_secret()
