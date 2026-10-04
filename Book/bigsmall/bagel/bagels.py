@@ -20,7 +20,7 @@ def get_guess():
         
     return guess
 
-
+#evaluate functions
 def evaluate_guess(guess, secret):
     
     
