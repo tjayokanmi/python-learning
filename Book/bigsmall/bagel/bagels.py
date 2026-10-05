@@ -1,8 +1,11 @@
 import random
 
+NUM_DIGITS = 3
+MAX_GUESSES = 10
+
 def generate_secret():
     digits = []
-    for _ in range(3):
+    for _ in range(NUM_DIGITS):
         while True:
             gen = str(random.randint(0,9))
             if gen not in digits:
@@ -15,12 +18,11 @@ def get_guess():
     
     while True:
         guess= input("Guess my secret number: ")
-        if len(guess) == 3 and guess.isdigit():
+        if len(guess) == NUM_DIGITS and guess.isdigit():
             break 
         
     return guess
 
-#evaluate functions
 def evaluate_guess(guess, secret):
     
     
@@ -39,14 +41,13 @@ def evaluate_guess(guess, secret):
     
     return " ".join(result)
 
-# This is the main function, where everything is connected.
 def main():
     while True:
         secret = generate_secret()
-        print("For this game, you have only 10 guesses")
+        print(f"For this game, you have only {MAX_GUESSES} guesses")
         count_guess = 1
 
-        while count_guess < 11: 
+        while count_guess <= MAX_GUESSES: 
             guess = get_guess()
             print(evaluate_guess(guess, secret))
             if guess == secret:
