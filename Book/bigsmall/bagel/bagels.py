@@ -35,7 +35,7 @@ def evaluate_guess(guess, secret):
         elif guess[num] in secret:
             result.append("Pico")
 
-    if result == []:
+    if not result:
         result.append("bagels")
     
     
@@ -45,17 +45,15 @@ def main():
     while True:
         secret = generate_secret()
         print(f"For this game, you have only {MAX_GUESSES} guesses")
-        count_guess = 1
 
-        while count_guess <= MAX_GUESSES: 
+        for _ in range(MAX_GUESSES):
             guess = get_guess()
             print(evaluate_guess(guess, secret))
+
             if guess == secret:
                 print("You have guessed correctly")
                 break
-            
-            count_guess += 1
-
+      
         else:
             print(f"You are out of guesses, the correct number is {secret}")
 
