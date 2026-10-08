@@ -38,7 +38,11 @@ def borrow_resource(fellow_id, resource_id, quantity):
                         borrow_records.append(borrower)
     return
 
-borrow_resource("F001", "R001", 2)
+def return_resource(fellow_id, resource_id, quantity): 
 
-print(resources)
-print(borrow_records)
+
+
+
+
+# borrow_resource("F001", "R001", 2)
+# borrow_resource("F002", "R002", 3)
