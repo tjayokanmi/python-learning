@@ -26,10 +26,10 @@ def list_resources():
 def borrow_resource(fellow_id, resource_id, quantity): 
     if fellow_id in fellows:
         borrower = {
-            "Name": fellow_id,
-            "Resource" : resource_id,
-            "Amount": quantity
-        }
+            "fellow_id": fellow_id,
+            "resource_id": resource_id,
+            "quantity": quantity
+            }
         for resource in resources:
             if resource["id"] == resource_id:
                 if quantity > 0:
@@ -37,3 +37,8 @@ def borrow_resource(fellow_id, resource_id, quantity):
                         resource["available"] -= quantity
                         borrow_records.append(borrower)
     return
+
+borrow_resource("F001", "R001", 2)
+
+print(resources)
+print(borrow_records)
