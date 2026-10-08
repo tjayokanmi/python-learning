@@ -23,4 +23,17 @@ def list_resources():
             '''
         )
 
-def borrow_resource(): 
+def borrow_resource(fellow_id, resource_id, quantity): 
+    if fellow_id in fellows:
+        borrower = {
+            "Name": fellow_id,
+            "Resource" : resource_id,
+            "Amount": quantity
+        }
+        for resource in resources:
+            if resource["id"] == resource_id:
+                if quantity > 0:
+                    if resource["available"] >= quantity:
+                        resource["available"] -= quantity
+                        borrow_records.append(borrower)
+    return
