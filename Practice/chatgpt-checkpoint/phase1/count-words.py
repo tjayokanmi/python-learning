@@ -10,6 +10,4 @@ def count_words(texts):
        
     return result 
 
-
-
 print(count_words("python is fun and python is powerful"))
