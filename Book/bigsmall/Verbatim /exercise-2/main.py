@@ -12,11 +12,11 @@ def getBirthdays(numberOfBirthdays):
     for i in range(numberOfBirthdays):
         # The year is unimportant for our simulation,
         #  as long as all birthdays have the same year.
-        startOfyear = datetime.date(2001,1,1)
+        startofYear = datetime.date(2001,1,1)
 
         # Get a random day into the year:
         randomNumberOfdays = datetime.timedelta(random.randint(0,364))
-        birthday = startOfYear + randomNumberOfdays
+        birthday = startofYear + randomNumberOfdays
         birthdays.append(birthday)
 
     return birthdays 
@@ -71,7 +71,7 @@ print()
 print()
 
 #Determine if there are two birthdays that match. 
-match = getmatch(birthdays)
+match = getMatch(birthdays)
 
 #Display the results:
 
@@ -103,6 +103,6 @@ print('100,000 simulations run.')
 probability = round(simMatch / 100000 * 100, 2)
 print('Out of 100,000 simulations of', numBdays, 'people there was a')
 print('matching birthday in that group', simMatch, 'times. This means')
-print('that', numBdays, 'people have a', probablility, '% chance of')
+print('that', numBdays, 'people have a', probability, '% chance of')
 print('having a matching birthday in their group.')
 print('That\'s probably more than you would think!')
