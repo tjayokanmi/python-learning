@@ -9,6 +9,8 @@ dictionary.update({"duck":"canard"})
 
 # for english, french in dictionary.items():
 #     print(english, "->", french)
+
+del dictionary['dog']
  
 for key in sorted(dictionary.keys()):
     print(key, "->", dictionary[key])
