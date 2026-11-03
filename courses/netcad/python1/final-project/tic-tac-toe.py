@@ -1,7 +1,7 @@
 board = [
-    [1, 2, 3],
-    [4, "X", 6],
-    [7, 8, "O"]
+    ["X", "0", "X"],
+    [1, "O", 6],
+    ["X", 8, "O"]
 ]
 
 def display_board(board):
@@ -31,12 +31,33 @@ def make_list_of_free_fields(board):
                 result.append(position)  
     return result 
 
-# def victory_for(board, sign):
+def victory_for(board, sign):
 #     # The function analyzes the board's status in order to check if 
 #     # the player using 'O's or 'X's has won the game
+    for row in range(3):
+        if (board[row][0] == sign and 
+            board[row][1] == sign and 
+            board[row][2] == sign):
+            return True
 
+    for column in range(3):
+        if (board[0][column] == sign and 
+            board[1][column] == sign and
+            board[2][column] == sign):
+            return True
+    if (board[0][0] == sign and 
+        board[1][1] == sign and 
+        board[2][2] == sign):
+        return True
+    
+    if (board[0][2] == sign and 
+        board[1][1] == sign and 
+        board[2][0] == sign):
+        return True
+        
+    return False
 
 # def draw_move(board):
 #     # The function draws the computer's move and updates the board.
 
-print(make_list_of_free_fields(board))
+print(victory_for(board, "O"))
