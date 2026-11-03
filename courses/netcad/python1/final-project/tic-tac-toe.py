@@ -1,7 +1,9 @@
+import random
+
 board = [
-    ["X", "0", "X"],
-    [1, "O", 6],
-    ["X", 8, "O"]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ]
 
 def display_board(board):
@@ -76,7 +78,47 @@ def victory_for(board, sign):
         
     return False
 
-# def draw_move(board):
+def draw_move(board):
 #     # The function draws the computer's move and updates the board.
+    
+    positions = make_list_of_free_fields(board)
+    selected = random.choice(positions)
+    row_index, column_index = selected
+    board[row_index][column_index] = "X"
+    # while True:
+    #     number = random.randint(1,9)
+    #     row_index = (number -1)//3
+    #     column_index = (number-1) % 3
+    #     if board[row_index][column_index] in ["O", "X"]:
+    #         continue
+    #     board[row_index][column_index] = "X"
+    #     break
 
-print(victory_for(board, "O"))
+def main(board):
+    display_board(board)
+    board[1][1] = "X"
+    display_board(board)
+    while True:
+        enter_move(board) 
+        if victory_for(board,"O"):
+            print("The user has Won!")
+            display_board(board)
+            break
+        if not make_list_of_free_fields(board):
+            print("The board is full without a winner: Draw!")
+            display_board(board)
+
+            break
+        draw_move(board)
+        display_board(board)
+        if victory_for(board,"X"):
+            print("The computer has won!")
+            display_board(board)
+
+            break
+        if not make_list_of_free_fields(board):
+            print("The board is full without a winner: Draw!")
+            display_board(board)
+            break
+
+main(board)
