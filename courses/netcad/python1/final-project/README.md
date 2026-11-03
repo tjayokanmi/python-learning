@@ -26,13 +26,13 @@ The game allows a human player to compete against the computer on a 3×3 board.
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/tjayokanmi/python-learning.git
 ```
 
-### 2. Navigate into the project directory
+### 2. Navigate to the project directory
 
 ```bash
-cd tic-tac-toe
+cd python-learning/courses/netcad/python1/final-project
 ```
 
 ### 3. Run the game
