@@ -23,7 +23,7 @@ def enter_move(board):
     
     while True:
         try:
-            print("make a move: Select a number from 1 to 9")
+            print("Make your move. Select a position from 1 to 9:")
             move = int(input("> "))
             if 1 <= move <= 9:
                 row_index = (move -1)//3
