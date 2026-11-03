@@ -20,7 +20,7 @@ def display_board(board):
 #     # checks the input, and updates the board according to the user's decision.
 
 
-# def make_list_of_free_fields(board):
+def make_list_of_free_fields(board):
 #     # The function browses the board and builds a list of all the free squares; 
 #     # the list consists of tuples, while each tuple is a pair of row and column numbers.
 
@@ -32,5 +32,3 @@ def display_board(board):
 
 # def draw_move(board):
 #     # The function draws the computer's move and updates the board.
-
-display_board(board)
