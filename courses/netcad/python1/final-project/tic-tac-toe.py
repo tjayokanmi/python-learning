@@ -23,7 +23,13 @@ def display_board(board):
 def make_list_of_free_fields(board):
 #     # The function browses the board and builds a list of all the free squares; 
 #     # the list consists of tuples, while each tuple is a pair of row and column numbers.
-
+    result = []
+    for row_index, row in enumerate(board):
+       for column_index, column in enumerate(row):
+            position = (row_index, column_index)
+            if isinstance(column, int):
+                result.append(position)  
+    return result 
 
 # def victory_for(board, sign):
 #     # The function analyzes the board's status in order to check if 
@@ -32,3 +38,5 @@ def make_list_of_free_fields(board):
 
 # def draw_move(board):
 #     # The function draws the computer's move and updates the board.
+
+print(make_list_of_free_fields(board))
