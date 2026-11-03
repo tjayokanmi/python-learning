@@ -15,10 +15,29 @@ def display_board(board):
     print("+-------+-------+-------+")
 
 
-# def enter_move(board):
+def enter_move(board):
 #     # The function accepts the board's current status, asks the user about their move, 
 #     # checks the input, and updates the board according to the user's decision.
+    
+    while True:
+        try:
+            print("make a move: Select a number from 1 to 9")
+            move = int(input("> "))
+            if 1 <= move <= 9:
+                row_index = (move -1)//3
+                column_index = (move-1) % 3
+            else:
+                print("Number is out of range")
+                continue
+            if board[row_index][column_index] in ["O", "X"]:
+                print("The cell is occupied. Choose a free cell.")
+                continue
 
+            board[row_index][column_index] = "O"
+            break
+        except ValueError:
+            print("Invalid Input: kindly enter a number between 1 and 9")
+    
 
 def make_list_of_free_fields(board):
 #     # The function browses the board and builds a list of all the free squares; 
