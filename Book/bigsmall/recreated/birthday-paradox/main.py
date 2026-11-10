@@ -1,11 +1,11 @@
 import random
 import datetime
 
-def generate_birthday(number_of_birthdays):
+def generate_birthdays(number_of_birthdays):
     
     store_dates = []      
 
-    start_date = datetime.date(1990, 1 , 1)
+    start_date = datetime.date(1991, 1 , 1)
 
     for i in range(number_of_birthdays):
         random_days = random.randint(0,364)
@@ -15,9 +15,22 @@ def generate_birthday(number_of_birthdays):
         
     return store_dates
 
+def check_for_match(birthdays):
+    # length_of_list = len(birthdays)
+    # set_birthdays = set(birthdays)
+    # length_of_set = len(set_birthdays)
 
-birthdays = generate_birthday(5)
+    return len(birthdays) != len(set(birthdays))
 
-print(birthdays)
-print(len(birthdays))
-print(type(birthdays[0]))
+    # if length_of_list == length_of_set:
+    #     return False
+    # return True
+
+def run_simulation(number_of_birthdays):
+    count =  0
+
+    for i in range(100000):
+        check_for_match(number_of_birthdays)
+        if check_for_match = True:
+            count += 1
+    return count 
