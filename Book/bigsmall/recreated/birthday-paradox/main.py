@@ -39,6 +39,21 @@ def run_simulation(number_of_birthdays):
 def calculate_probability(successful_simulations, total_simulations):
     if total_simulations == 0:
         return None
-    return round((successful_simulations/total_silmulations) * 100, 2)
+    return round((successful_simulations/total_simulations) * 100, 2)
 
 def get_user_input():
+    while True:
+        try:
+            print("Please enter a number between 1 and 100")
+            num = int(input())
+            if 1 <= num <= 100:
+                break
+            else:
+                print("Please enter a number between 1 and 100")
+        except ValueError:
+            print("Kindly enter a valid number here")
+    
+    return num
+
+
+def display_results():
