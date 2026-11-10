@@ -1,19 +1,20 @@
 import random
 import datetime
 
+NUMBER_OF_SIMULATIONS = 100_000
+
 def generate_birthdays(number_of_birthdays):
     
-    store_dates = []      
+    birthday_dates = []      
 
     start_date = datetime.date(1991, 1 , 1)
 
     for i in range(number_of_birthdays):
         random_days = random.randint(0,364)
         generated_date = start_date + datetime.timedelta(days=random_days)
-        store_dates.append(generated_date)
+        birthday_dates.append(generated_date)
 
-        
-    return store_dates
+    return birthday_dates
 
 def check_for_match(birthdays):
     return len(birthdays) != len(set(birthdays))
@@ -56,3 +57,12 @@ def display_results(
     print(f"Number of simulations: {number_of_simulations}")
     print(f"Number of successful simulations: {successful_simulations}")
     print(f"Probability: {probability}%")
+
+def main():
+    group_size = get_user_input()
+    successful_count = run_simulation(group_size, NUMBER_OF_SIMULATIONS)
+    probability = calculate_probability(successful_count,NUMBER_OF_SIMULATIONS)
+    display_results(group_size, NUMBER_OF_SIMULATIONS, successful_count, probability)
+
+if __name__ == "__main__":
+    main()
