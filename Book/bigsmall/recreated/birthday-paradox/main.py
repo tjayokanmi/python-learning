@@ -28,9 +28,17 @@ def check_for_match(birthdays):
 
 def run_simulation(number_of_birthdays):
     count =  0
+    number_of_simulations = 100000
 
-    for i in range(100000):
-        check_for_match(number_of_birthdays)
-        if check_for_match = True:
+    for _ in range(number_of_simulations):
+        birthdays = generate_birthdays(number_of_birthdays)
+        if check_for_match(birthdays):
             count += 1
     return count 
+
+def calculate_probability(successful_simulations, total_simulations):
+    if total_simulations == 0:
+        return None
+    return round((successful_simulations/total_silmulations) * 100, 2)
+
+def get_user_input():
