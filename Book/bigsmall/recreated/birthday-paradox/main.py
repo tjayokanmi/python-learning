@@ -9,8 +9,8 @@ def generate_birthdays(number_of_birthdays):
 
     start_date = datetime.date(1991, 1 , 1)
 
-    for i in range(number_of_birthdays):
-        random_days = random.randint(0,364)
+    for _ in range(number_of_birthdays):
+        random_days = random.randrange(365)
         generated_date = start_date + datetime.timedelta(days=random_days)
         birthday_dates.append(generated_date)
 
@@ -20,7 +20,7 @@ def check_for_match(birthdays):
     return len(birthdays) != len(set(birthdays))
 
 def run_simulation(number_of_birthdays, number_of_simulations):
-    count =  0
+    count = 0
     for _ in range(number_of_simulations):
         birthdays = generate_birthdays(number_of_birthdays)
         if check_for_match(birthdays):
@@ -34,9 +34,8 @@ def calculate_probability(successful_simulations, total_simulations):
 
 def get_user_input():
     while True:
-        try:
-            print("Please enter a number between 1 and 100")
-            num = int(input())
+        try:            
+            num = int(input("Please enter a number between 1 and 100 "))
             if 1 <= num <= 100:
                 break
             else:
