@@ -16,20 +16,10 @@ def generate_birthdays(number_of_birthdays):
     return store_dates
 
 def check_for_match(birthdays):
-    # length_of_list = len(birthdays)
-    # set_birthdays = set(birthdays)
-    # length_of_set = len(set_birthdays)
-
     return len(birthdays) != len(set(birthdays))
 
-    # if length_of_list == length_of_set:
-    #     return False
-    # return True
-
-def run_simulation(number_of_birthdays):
+def run_simulation(number_of_birthdays, number_of_simulations):
     count =  0
-    number_of_simulations = 100000
-
     for _ in range(number_of_simulations):
         birthdays = generate_birthdays(number_of_birthdays)
         if check_for_match(birthdays):
