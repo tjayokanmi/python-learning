@@ -55,5 +55,14 @@ def get_user_input():
     
     return num
 
+def display_results(
+    number_of_birthdays,
+    number_of_simulations,
+    successful_simulations,
+    probability
+):
 
-def display_results():
+    print(f"Number of birthdays: {number_of_birthdays}")
+    print(f"Number of simulations: {number_of_simulations}")
+    print(f"Number of successful simulations: {successful_simulations}")
+    print(f"Probability: {probability}%")
