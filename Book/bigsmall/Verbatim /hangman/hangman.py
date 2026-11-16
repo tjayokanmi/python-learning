@@ -80,3 +80,15 @@ def main():
         if guess in secretWord:
             #Add the correct guess to correctLetters:
             correctLetters.append(guess)
+
+        #check if the player has won:
+        foundAllLetters = True #start off assuming they've won.
+        for secretWordletter in secretWord:
+            if secretWordletter not in correctLetters:
+                #There is a letter in the secret word that isn't 
+                #yet in correctLetters, so the player hasn't won:
+                foundAllLetters = False
+                break
+        if foundAllLetters:
+            print("Yes! The secret word:," secretWord)
+
