@@ -61,7 +61,8 @@ r"""
 ====="""]
 
 #(!) Try replacing CATEGORY and WORDS with new strings.
-WORDS = 'ANT BABOON BADGER BAT BEAR BEAVER CAMEL CAT CLAM COBRA COUGAR COYOTE CROW DEER DOG DONKEY DUCK EAGLE FERRET FOX FROG GOAT GOOSE HAWK LION LIZARD LLAMA MOLE MONKEY MOOSE MOUSE MULE NEWT OTTER OWL PANDA PARROT PIGEON PYTHON RABBIT RAM RAT RAVEN RHINO SALMON SEAL SHARK SHEEP SKUNK SLOTH SNAKE SPIDER STORK SWAN TIGER TOAD TROUT TURKEY TURTLE WEASEL WHALE WOLF WOMBAT ZEBRA'.split()
+WORDS = 'AARDVARK ADDER ANT ANTELOPE BABOON BADGER BAT BEAR BEAVER BUFFALO BUSHBABY CAMEL CAT CHIMPANZEE CLAM COBRA COUGAR COYOTE CRANE CROCODILE CROW DEER DOG DONKEY DUCK EAGLE ELEPHANT FERRET FOX FROG GOAT GOOSE GORILLA GUENON HAWK HIPPOPOTAMUS HOG HYENA JACKAL LEOPARD LION LIZARD LLAMA MANATEE MANGABEY MOLE MONKEY MOOSE MOUSE MULE NEWT OTTER OWL PANDA PANGOLIN PARROT PATAS PIGEON PORCUPINE PYTHON RABBIT RAM RAT RAVEN RHINO SALMON SEAL SHARK SHEEP SKUNK SLOTH SNAKE SPIDER STORK SWAN TIGER TOAD TROUT TURKEY TURTLE WARTHOG WATERBUCK WEASEL WHALE WOLF WOMBAT ZEBRA'.split()
+
 
 def main(): 
     print("Hangman, by Al Sweigart")
@@ -81,14 +82,29 @@ def main():
             #Add the correct guess to correctLetters:
             correctLetters.append(guess)
 
-        #check if the player has won:
-        foundAllLetters = True #start off assuming they've won.
-        for secretWordletter in secretWord:
-            if secretWordletter not in correctLetters:
-                #There is a letter in the secret word that isn't 
-                #yet in correctLetters, so the player hasn't won:
-                foundAllLetters = False
+            #check if the player has won:
+            foundAllLetters = True #start off assuming they've won.
+            for secretWordletter in secretWord:
+                if secretWordletter not in correctLetters:
+                    #There is a letter in the secret word that isn't 
+                    #yet in correctLetters, so the player hasn't won:
+                    foundAllLetters = False
+                    break
+            if foundAllLetters:
+                print("Yes! The secret word:," secretWord)
+                print("You have won!")
+                break #Break out of the main game loop.
+        else:
+            #The player has guessed incorrectly:
+            missedLetters.append(guess)
+
+            #Check if player has guessed too many times and lost. (The
+            #"- 1" is because we don't count the empty gallows in
+            #HANGMAN_PICS.)
+            if len(missedLetters) == len(HANGMAN_PICS)  - 1:
+                drawHangman(missedLetters, correctLetters,  secretWord)
+                print('You have run out of guesses!')
+                print('The word was "{}"'.format(secretWord))
                 break
-        if foundAllLetters:
-            print("Yes! The secret word:," secretWord)
+        
 
