@@ -61,6 +61,7 @@ r"""
 ====="""]
 
 #(!) Try replacing CATEGORY and WORDS with new strings.
+CATEGORY = 'Animals'
 WORDS = 'AARDVARK ADDER ANT ANTELOPE BABOON BADGER BAT BEAR BEAVER BUFFALO BUSHBABY CAMEL CAT CHIMPANZEE CLAM COBRA COUGAR COYOTE CRANE CROCODILE CROW DEER DOG DONKEY DUCK EAGLE ELEPHANT FERRET FOX FROG GOAT GOOSE GORILLA GUENON HAWK HIPPOPOTAMUS HOG HYENA JACKAL LEOPARD LION LIZARD LLAMA MANATEE MANGABEY MOLE MONKEY MOOSE MOUSE MULE NEWT OTTER OWL PANDA PANGOLIN PARROT PATAS PIGEON PORCUPINE PYTHON RABBIT RAM RAT RAVEN RHINO SALMON SEAL SHARK SHEEP SKUNK SLOTH SNAKE SPIDER STORK SWAN TIGER TOAD TROUT TURKEY TURTLE WARTHOG WATERBUCK WEASEL WHALE WOLF WOMBAT ZEBRA'.split()
 
 
@@ -91,7 +92,7 @@ def main():
                     foundAllLetters = False
                     break
             if foundAllLetters:
-                print("Yes! The secret word:," secretWord)
+                print("Yes! The secret word:", secretWord)
                 print("You have won!")
                 break #Break out of the main game loop.
         else:
@@ -131,7 +132,7 @@ def drawHangman(missedLetters, correctLetters, secretWord):
             blank[i] = secretWord[i]
     
     #show the secret word with spaces in between each letter:
-    print(' '.join(blanks))
+    print(' '.join(blank))
 
 def getPlayerGuess(alreadyGuessed):
     """ Returns the letter the player entered. This function makes sure
@@ -143,13 +144,13 @@ def getPlayerGuess(alreadyGuessed):
             print('Please enter a single letter.')
         elif guess in alreadyGuessed:
             print('You have already guessed that letter. Choose again.')
-        elif not guess.alpha():
+        elif not guess.isalpha():
             print('Please enter a LETTER.')
         else:
             return guess
 
 #id this program was run (instead of imported), run the game:
-if __name__ == '__main__'
+if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
