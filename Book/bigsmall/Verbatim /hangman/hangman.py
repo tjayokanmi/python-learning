@@ -132,3 +132,25 @@ def drawHangman(missedLetters, correctLetters, secretWord):
     
     #show the secret word with spaces in between each letter:
     print(' '.join(blanks))
+
+def getPlayerGuess(alreadyGuessed):
+    """ Returns the letter the player entered. This function makes sure
+    the player entered a single letter they haven't guessed before."""
+    while True: #Keep asking untill the player enters a valid letter.
+        print('Guess a letter.')
+        guess = input('> ').upper()
+        if len(guess) != 1:
+            print('Please enter a single letter.')
+        elif guess in alreadyGuessed:
+            print('You have already guessed that letter. Choose again.')
+        elif not guess.alpha():
+            print('Please enter a LETTER.')
+        else:
+            return guess
+
+#id this program was run (instead of imported), run the game:
+if __name__ == '__main__'
+    try:
+        main()
+    except KeyboardInterrupt:
+        sys.exit() #When Ctrl + C is pressed, end the program.
